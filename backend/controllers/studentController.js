@@ -53,3 +53,5 @@ exports.deleteStudent = async (req, res) => {
 
   res.json({ message: "Student and related data deleted" });
 };
+
+
