@@ -15,6 +15,7 @@ app.use("/api/student", require("./routes/studentRoutes"));
 app.use("/api/faculty", require("./routes/facultyRoutes"));
 app.use("/api/hod", require("./routes/hodRoutes"));
 
-app.listen(process.env.PORT, () =>
-  console.log(`Server running on port ${process.env.PORT}`)
-);
+const parsedPort = parseInt(process.env.PORT, 10);
+const PORT = Number.isInteger(parsedPort) && parsedPort >= 0 && parsedPort < 65536 ? parsedPort : 3000;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
