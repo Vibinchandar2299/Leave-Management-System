@@ -3,6 +3,21 @@ const Message = require("../models/ApplicationMessage");
 const Hod = require("../models/Hod");
 const User = require("../models/User");
 
+exports.getAllApplications = async (req, res) => {
+  try {
+    const hod = await Hod.findOne({ user_id: req.user._id });
+    if (!hod) return res.status(404).json({ message: "HOD profile not found" });
+
+    const applications = await Leave.find({
+      "student_snapshot.department": hod.department
+    }).sort({ submitted_at: -1 });
+
+    res.json(applications);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 exports.finalDecision = async (req, res) => {
   const leave = await Leave.findById(req.params.id);
   leave.status = req.body.status;

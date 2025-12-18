@@ -13,8 +13,15 @@ const leaveSchema = new mongoose.Schema({
     college_email: String
   },
 
-  parent_phone: String,
+  leave_type: {
+    type: String,
+    enum: ["Medical Leave", "Personal Leave", "On Duty (OD)", "Emergency Leave", "Casual Leave"]
+  },
+  from_date: Date,
+  to_date: Date,
+  number_of_days: Number,
   leave_reason: String,
+  parent_phone: String,
 
   status: {
     type: String,

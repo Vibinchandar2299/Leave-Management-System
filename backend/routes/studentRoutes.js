@@ -1,7 +1,10 @@
 const router = require("express").Router();
 const protect = require("../middleware/authMiddleware");
 const allowRoles = require("../middleware/roleMiddleware");
-const { applyLeave, deleteStudent } = require("../controllers/studentController");
+const { applyLeave, deleteStudent, getMyApplications } = require("../controllers/studentController");
+
+// GET student's own applications
+router.get("/applications", protect, allowRoles("STUDENT"), getMyApplications);
 
 router.post("/apply", protect, allowRoles("STUDENT"), applyLeave);
 
