@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import Header from '../components/common/Header';
+import AppLayout from '../components/layout/AppLayout';
+import MainContainer from '../components/layout/MainContainer';
 import PendingApplications from '../components/faculty/PendingApplications';
 import { facultyAPI } from '../services/api';
 
@@ -20,9 +21,9 @@ const FacultyDashboard = () => {
   };
 
   return (
-    <div className="page-container">
-      <Header />
-      <div className="content-container" style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}>
+    <AppLayout>
+      <MainContainer className="" >
+        <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}>
         <div className="page-header">
           <div>
             <h2 className="page-title">Faculty Dashboard</h2>
@@ -71,8 +72,9 @@ const FacultyDashboard = () => {
             </ul>
           </div>
         </div>
-      </div>
-    </div>
+        </div>
+      </MainContainer>
+    </AppLayout>
   );
 };
 

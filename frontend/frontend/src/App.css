@@ -1,5 +1,6 @@
 /* Import Design System */
 @import './styles/designSystem.css';
+@import './styles/professionalUI.css';
 
 .App {
   min-height: 100vh;

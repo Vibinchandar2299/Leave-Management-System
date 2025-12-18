@@ -65,7 +65,7 @@ function App() {
               } 
             />
             
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<LoginPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

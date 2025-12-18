@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import Header from '../components/common/Header';
+import AppLayout from '../components/layout/AppLayout';
+import MainContainer from '../components/layout/MainContainer';
 import AllApplications from '../components/hod/AllApplications';
 import { hodAPI } from '../services/api';
 
@@ -25,9 +26,9 @@ const HodDashboard = () => {
   };
 
   return (
-    <div className="page-container">
-      <Header />
-      <div className="content-container" style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}>
+    <AppLayout>
+      <MainContainer>
+        <div style={{ paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}>
         <div className="page-header">
           <div>
             <h2 className="page-title">HOD Dashboard</h2>
@@ -85,8 +86,9 @@ const HodDashboard = () => {
             </ul>
           </div>
         </div>
-      </div>
-    </div>
+        </div>
+      </MainContainer>
+    </AppLayout>
   );
 };
 
