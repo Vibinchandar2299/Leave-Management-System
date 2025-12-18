@@ -39,6 +39,7 @@
   --color-accent-400: #fbbf24;
   --color-accent-500: #f59e0b;
   --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
 
   /* Neutral Grays */
   --color-neutral-50: #f9fafb;
@@ -67,7 +68,7 @@
   --text-primary: var(--color-neutral-900);
   --text-secondary: var(--color-neutral-600);
   --text-tertiary: var(--color-neutral-500);
-
+  
   /* Spacing System */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -174,6 +175,8 @@ body {
   align-items: flex-start;
   margin-bottom: var(--space-8);
   padding: var(--space-6) 0;
+ 
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
 }
 
 .page-title {
@@ -181,6 +184,7 @@ body {
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.2;
+
 }
 
 .page-subtitle {

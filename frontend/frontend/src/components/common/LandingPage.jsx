@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import AnimatedText from './AnimatedText';
 
 const LandingPage = () => {
   return (
-    <div className="flex justify-center items-center" style={{minHeight: '100vh', backgroundColor: 'var(--bg-primary)', padding: 'var(--space-8)'}}>
-      <div className="card text-center" style={{maxWidth: '600px'}}>
+    <div className="flex justify-center items-center animate-fade-up" style={{minHeight: '100vh', backgroundColor: 'var(--bg-primary)', padding: 'var(--space-8)'}}>
+      <div className="card text-center" style={{maxWidth: '720px'}}>
         <div className="card-header">
-          <h1 className="text-2xl font-bold mb-2">Leave Management System</h1>
+          <h1 className="text-2xl font-bold mb-2"><AnimatedText text={'Leave Management System'} /></h1>
           <p className="text-secondary">Streamline your leave application process</p>
         </div>
         

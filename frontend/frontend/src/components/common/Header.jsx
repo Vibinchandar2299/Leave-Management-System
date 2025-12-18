@@ -1,5 +1,8 @@
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/clg_logo[1].png';
+import AnimatedText from './AnimatedText';
+import Navigation from '../nav/Navigation';
 
 const Header = () => {
   const { user, logout } = useAuth();
@@ -20,47 +23,35 @@ const Header = () => {
   };
 
   return (
-    <header style={{ 
-      backgroundColor: 'var(--bg-secondary)', 
-      borderBottom: '1px solid var(--color-neutral-200)',
-      boxShadow: 'var(--shadow-sm)',
-      position: 'sticky',
-      top: 0,
-      zIndex: 100
-    }}>
+    <header className="card" style={{ margin: 0, borderRadius: 0, borderLeft: 0, borderRight: 0, borderTop: 0 }}>
       <div className="content-container">
-        <div className="flex justify-between items-center" style={{ padding: 'var(--space-4) 0' }}>
-          <h1 
-            className="text-xl font-bold" 
-            style={{ 
-              cursor: 'pointer', 
-              color: 'var(--color-primary-700)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--space-2)'
-            }} 
-            onClick={() => navigate(getDashboardPath())}
-          >
-            <span style={{ 
-              width: '32px', 
-              height: '32px', 
-              backgroundColor: 'var(--color-primary-600)',
-              borderRadius: 'var(--radius-md)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontSize: '1.125rem',
-              fontWeight: 700
-            }}>
-              LMS
-            </span>
-            Leave Management System
-          </h1>
+        <div className="page-header" style={{ marginBottom: 0, paddingBottom: 0 }}>
+          <div className="flex items-center gap-4" style={{ cursor: 'pointer' }} onClick={() => navigate(getDashboardPath())}>
+            <img
+              src={logo}
+              alt="Sri Eshwar College Logo"
+              style={{
+                height: '50px',
+                width: 'auto'
+              }}
+            />
+            <h1 className="page-title" style={{ margin: 0 }}>
+              <AnimatedText text={'Sri Eshwar Leave Management System'} />
+            </h1>
+          </div>
+
+          <div style={{marginLeft: 'auto'}}>
+            <Navigation items={[
+              { to: '/', label: 'Home' },
+              { to: '/student', label: 'Student' },
+              { to: '/faculty', label: 'Faculty' },
+              { to: '/hod', label: 'HOD' }
+            ]} />
+          </div>
           {user && (
-            <div className="flex items-center gap-4">
-              <span className="status-badge status-info">{user.role}</span>
-              <button className="btn btn-outline" onClick={handleLogout}>
+            <div className="header-actions">
+              <span className="badge badge-info" aria-hidden>{user.role}</span>
+              <button className="btn btn-outline" onClick={handleLogout} aria-label="Logout">
                 Logout
               </button>
             </div>
@@ -70,7 +61,5 @@ const Header = () => {
     </header>
   );
 };
-
-
 
 export default Header;

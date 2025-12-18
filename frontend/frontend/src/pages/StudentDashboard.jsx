@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import Header from '../components/common/Header';
+import AppLayout from '../components/layout/AppLayout';
+import MainContainer from '../components/layout/MainContainer';
 import LeaveApplicationForm from '../components/student/LeaveApplicationForm';
 import ApplicationsList from '../components/student/ApplicationsList';
 import { studentAPI } from '../services/api';
@@ -32,37 +33,36 @@ const StudentDashboard = () => {
   };
 
   return (
-    <div className="page-container">
-      <Header />
-      <div className="content-container">
-        <div className="page-header">
+    <AppLayout>
+      <MainContainer>
+        <div className="page-header animate-slide-up">
           <div>
             <h2 className="page-title">Student Dashboard</h2>
             <p className="page-subtitle">Manage your leave applications</p>
           </div>
         </div>
         
-        <div className="grid grid-cols-3 mb-8">
-          <div className="card text-center">
+        <div className="grid grid-cols-3 mb-8 gap-6">
+          <div className="card dashboard-metric text-center animate-fade-in">
             <div className="card-body">
               <h3 className="text-lg font-semibold mb-2">Total Applications</h3>
-              <p className="text-2xl font-bold mb-2" style={{color: 'var(--color-primary-600)'}}>{stats.total}</p>
+              <p className="text-3xl font-extrabold mb-2" style={{color: 'var(--color-primary-600)'}}>{stats.total}</p>
               <p className="text-secondary text-sm">Applications submitted by you</p>
             </div>
           </div>
-          
-          <div className="card text-center">
+
+          <div className="card dashboard-metric text-center animate-fade-in">
             <div className="card-body">
               <h3 className="text-lg font-semibold mb-2">Pending Review</h3>
-              <p className="text-2xl font-bold mb-2" style={{color: 'var(--color-accent-600)'}}>{stats.pending}</p>
+              <p className="text-3xl font-extrabold mb-2" style={{color: 'var(--color-accent-600)'}}>{stats.pending}</p>
               <p className="text-secondary text-sm">Applications under review</p>
             </div>
           </div>
-          
-          <div className="card text-center">
+
+          <div className="card dashboard-metric text-center animate-fade-in">
             <div className="card-body">
               <h3 className="text-lg font-semibold mb-2">Approved</h3>
-              <p className="text-2xl font-bold mb-2" style={{color: 'var(--color-success)'}}>{stats.approved}</p>
+              <p className="text-3xl font-extrabold mb-2" style={{color: 'var(--color-success)'}}>{stats.approved}</p>
               <p className="text-secondary text-sm">Successfully approved applications</p>
             </div>
           </div>
@@ -85,8 +85,8 @@ const StudentDashboard = () => {
             </ol>
           </div>
         </div>
-      </div>
-    </div>
+      </MainContainer>
+    </AppLayout>
   );
 };
 
