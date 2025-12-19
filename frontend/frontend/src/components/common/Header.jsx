@@ -40,18 +40,11 @@ const Header = () => {
             </h1>
           </div>
 
-          <div style={{marginLeft: 'auto'}}>
-            <Navigation items={[
-              { to: '/', label: 'Home' },
-              { to: '/student', label: 'Student' },
-              { to: '/faculty', label: 'Faculty' },
-              { to: '/hod', label: 'HOD' }
-            ]} />
-          </div>
+
           {user && (
             <div className="header-actions">
               <span className="badge badge-info" aria-hidden>{user.role}</span>
-              <button className="btn btn-outline" onClick={handleLogout} aria-label="Logout">
+              <button className="btn btn-outline" onClick={handleLogout} aria-label="Logout" style={{backgroundColor: '#EF4444', color: 'white', borderColor: '#EF4444', marginLeft: '24px'}}>
                 Logout
               </button>
             </div>
